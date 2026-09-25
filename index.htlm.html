@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Emesk CS | Operational Performance, Data Analytics, AI & Process Optimization</title>
+
+<style>
+
+/* =========================
+   GLOBAL STYLE
+========================= */
+
+:root {
+    --dark-blue: #0B1F3A;
+    --dark-blue-2: #122B4D;
+    --gold: #C9A227;
+    --gold-light: #E2C45A;
+    --white: #FFFFFF;
+    --light-gray: #F4F6F8;
+    --dark-gray: #252A30;
+    --medium-gray: #68717D;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--dark-gray);
+    background: var(--white);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background: var(--dark-blue);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 75px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--gold-light);
+}
+
+/* Language buttons */
+
+.language-switch {
+    display: flex;
+    gap: 5px;
+    margin-left: 15px;
+}
+
+.language-switch button {
+    border: 1px solid var(--gold);
+    background: transparent;
+    color: white;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.language-switch button.active {
+    background: var(--gold);
+    color: var(--dark-blue);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    background:
+        linear-gradient(rgba(11,31,58,0.92), rgba(11,31,58,0.92)),
+        url("https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1800&q=80");
+
+    background-size: cover;
+    background-position: center;
+
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 6vw, 68px);
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: var(--gold-light);
+}
+
+.hero h1 .hero-main {
+    color: white;
+}
+
+.hero p {
+    font-size: 20px;
+    max-width: 750px;
+    color: #e5e9ee;
+    margin-bottom: 35px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 23px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: var(--gold);
+    color: var(--dark-blue);
+}
+
+.btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 1px solid var(--gold);
+    color: white;
+}
+
+.btn-outline:hover {
+    background: var(--gold);
+    color: var(--dark-blue);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+    padding: 90px 0;
+}
+
+.section-light {
+    background: var(--light-gray);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 38px;
+    color: var(--dark-blue);
+    margin-bottom: 12px;
+}
+
+.section-title .line {
+    width: 65px;
+    height: 4px;
+    background: var(--gold);
+    margin: auto;
+}
+
+.section-title p {
+    max-width: 700px;
+    margin: 18px auto;
+    color: var(--medium-gray);
+}
+
+/* =========================
+   WHAT WE DO
+========================= */
+
+.what-we-do {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+.what-we-do p {
+    font-size: 18px;
+    color: var(--medium-gray);
+    margin-bottom: 20px;
+}
+
+/* =========================
+   SERVICES CARDS
+========================= */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    border-top: 4px solid var(--gold);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+.card-icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: var(--dark-blue);
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: var(--medium-gray);
+}
+
+/* =========================
+   WHY CHOOSE US
+========================= */
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 25px;
+}
+
+.why-item {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.why-number {
+    width: 55px;
+    height: 55px;
+    margin: auto auto 15px;
+    border-radius: 50%;
+    background: var(--dark-blue);
+    color: var(--gold-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.why-item h3 {
+    color: var(--dark-blue);
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-content {
+    max-width: 950px;
+    margin: auto;
+    text-align: center;
+}
+
+.about-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: var(--medium-gray);
+}
+
+/* =========================
+   SERVICES PAGE
+========================= */
+
+.service-section {
+    margin-bottom: 60px;
+}
+
+.service-section h3 {
+    color: var(--dark-blue);
+    font-size: 28px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--gold);
+    padding-left: 15px;
+}
+
+.service-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 15px;
+}
+
+.service-list div {
+    background: var(--light-gray);
+    padding: 18px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+/* =========================
+   PORTFOLIO
+========================= */
+
+.portfolio-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.portfolio-image {
+    height: 220px;
+    background:
+        linear-gradient(rgba(11,31,58,0.7),rgba(11,31,58,0.7)),
+        url("https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.portfolio-image h3 {
+    font-size: 25px;
+    text-align: center;
+    padding: 20px;
+}
+
+.portfolio-body {
+    padding: 25px;
+}
+
+.portfolio-body h3 {
+    color: var(--dark-blue);
+    margin-bottom: 12px;
+}
+
+.portfolio-body ul {
+    margin: 15px 0 15px 20px;
+}
+
+.tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.tool {
+    background: var(--dark-blue);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+/* =========================
+   CONTENT PAGE
+========================= */
+
+.content-box {
+    max-width: 900px;
+    margin: auto;
+}
+
+.article {
+    background: white;
+    padding: 35px;
+    margin-bottom: 25px;
+    border-left: 5px solid var(--gold);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.article h3 {
+    color: var(--dark-blue);
+    margin-bottom: 12px;
+}
+
+/* =========================
+   FREE DEMO
+========================= */
+
+.demo {
+    background: var(--dark-blue);
+    color: white;
+    text-align: center;
+}
+
+.demo h2 {
+    color: white;
+}
+
+.demo p {
+    max-width: 700px;
+    margin: 20px auto 30px;
+    color: #dce3ea;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 25px;
+}
+
+.contact-card {
+    padding: 30px;
+    background: var(--light-gray);
+    text-align: center;
+    border-radius: 7px;
+}
+
+.contact-card h3 {
+    color: var(--dark-blue);
+    margin-bottom: 10px;
+}
+
+.contact-card a {
+    color: var(--dark-blue);
+    font-weight: bold;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #15191E;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+footer .logo {
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: #aeb5bd;
+    font-size: 14px;
+}
+
+.footer-line {
+    width: 60px;
+    height: 3px;
+    background: var(--gold);
+    margin: 15px auto;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+.mobile-menu {
+    display: none;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+@media(max-width: 850px) {
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: var(--dark-blue);
+        flex-direction: column;
+        padding: 25px;
+    }
+
+    nav.show {
+        display: flex;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    .language-switch {
+        margin-left: 0;
+    }
+
+    .hero {
+        min-height: 600px;
+    }
+
+    section {
+        padding: 65px 0;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- =========================
+HEADER
+========================= -->
+
+<header>
+
+<div class="container navbar">
+
+<div class="logo">
+    Emesk <span>CS</span>
+</div>
+
+<div class="mobile-menu" onclick="toggleMenu()">
+    ☰
+</div>
+
+<nav id="navigation">
+
+<a href="#home" data-en="Home" data-fr="Accueil">Home</a>
+
+<a href="#about" data-en="About Us" data-fr="À propos">About Us</a>
+
+<a href="#services" data-en="Services" data-fr="Services">Services</a>
+
+<a href="#portfolio" data-en="Portfolio" data-fr="Portfolio">Portfolio</a>
+
+<a href="#content" data-en="Content" data-fr="Contenu">Content</a>
+
+<a href="#demo" data-en="Free Demo" data-fr="Démo gratuite">Free Demo</a>
+
+<a href="#contact" data-en="Contact Us" data-fr="Contact">Contact Us</a>
+
+<div class="language-switch">
+
+<button id="enBtn" class="active" onclick="setLanguage('en')">
+EN
+</button>
+
+<button id="frBtn" onclick="setLanguage('fr')">
+FR
+</button>
+
+</div>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- =========================
+HOME
+========================= -->
+
+<section class="hero" id="home">
+
+<div class="container hero-content">
+
+<h1>
+    <span class="hero-main"
+          data-en="Taking your operations & projects to the next level with"
+          data-fr="Faites passer vos opérations et vos projets au niveau supérieur grâce à">Taking your operations & projects to the next level with</span>
+    <span data-en="Data Analytics, AI & Process Optimization"
+          data-fr="la Data, l'Analytique, l'IA et l'optimisation des processus">Data Analytics, AI & Process Optimization</span>
+</h1>
+
+<p data-en="Helping organizations improve customer experience and operational performance for better efficiency and quality."
+   data-fr="Nous aidons les organisations à améliorer l'expérience client et la performance opérationnelle pour une meilleure efficacité et une meilleure qualité.">
+
+    Helping organizations improve customer experience and operational performance for better efficiency and quality.
+
+</p>
+
+<div class="buttons">
+
+<a href="#services" class="btn btn-primary"
+   data-en="Explore Services"
+   data-fr="Découvrir nos services">
+   Explore Services
+</a>
+
+<a href="#portfolio" class="btn btn-outline"
+   data-en="View Portfolio"
+   data-fr="Voir notre portfolio">
+   View Portfolio
+</a>
+
+<a href="#demo" class="btn btn-outline"
+   data-en="Request Free Demo"
+   data-fr="Demander une démo gratuite">
+   Request Free Demo
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+WHAT WE DO
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+<h2 data-en="What We Do"
+    data-fr="Ce que nous faisons">
+    What We Do
+</h2>
+
+<div class="line"></div>
+
+</div>
+
+<div class="what-we-do">
+
+<p data-en="We help organizations and businesses transform operations for better outcomes."
+   data-fr="Nous aidons les organisations et les entreprises à transformer leurs opérations pour de meilleurs résultats.">
+
+    We help organizations and businesses transform operations for better outcomes.
+
+</p>
+
+<p data-en="We specialize in operational excellence, customer experience improvement, operations and project performance analysis, and process optimization with AI-driven solutions."
+   data-fr="Nous sommes spécialisés dans l'excellence opérationnelle, l'amélioration de l'expérience client, l'analyse de la performance des opérations et des projets, ainsi que l'optimisation des processus grâce à des solutions basées sur l'IA.">
+
+    We specialize in operational excellence, customer experience improvement, operations and project performance analysis, and process optimization with AI-driven solutions.
+
+</p>
+
+<p data-en="Our approach combines data, processes and people to create measurable business results."
+   data-fr="Notre approche combine les données, les processus et les personnes afin de créer des résultats mesurables.">
+
+    Our approach combines data, processes and people to create measurable business results.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+KEY SERVICES
+========================= -->
+
+<section class="section-light">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2 data-en="Key Services"
+    data-fr="Nos services clés">
+    Key Services
+</h2>
+
+<div class="line"></div>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card">
+<div class="card-icon">⚙️</div>
+<h3 data-en="Operational Excellence" data-fr="Excellence opérationnelle">Operational Excellence</h3>
+<p data-en="Improve processes, efficiency, consistency and operational performance."
+   data-fr="Améliorez les processus, l'efficacité, la cohérence et la performance opérationnelle."></p>
+</div>
+
+<div class="card">
+<div class="card-icon">📋</div>
+<h3 data-en="Project Management" data-fr="Gestion de projet">Project Management</h3>
+<p data-en="Plan, manage and analyze projects to improve delivery and measurable impact."
+   data-fr="Planifiez, gérez et analysez les projets pour améliorer leur exécution et leur impact mesurable."></p>
+</div>
+
+<div class="card">
+<div class="card-icon">👥</div>
+<h3 data-en="Customer Success" data-fr="Customer Success">Customer Success</h3>
+<p data-en="Strengthen customer support, retention, service quality and team performance."
+   data-fr="Renforcez le support client, la fidélisation, la qualité de service et la performance des équipes."></p>
+</div>
+
+<div class="card">
+<div class="card-icon">📊</div>
+<h3 data-en="Data Analysis" data-fr="Analyse de données">Data Analysis</h3>
+<p data-en="Turn operational and commercial data into KPIs, dashboards, insights and predictions."
+   data-fr="Transformez les données opérationnelles et commerciales en KPI, tableaux de bord, insights et prédictions."></p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- =========================
+WHY CHOOSE US
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+<h2 data-en="Why Choose Us"
+    data-fr="Pourquoi nous choisir">
+    Why Choose Us
+</h2>
+
+<div class="line"></div>
+
+</div>
+
+
+<div class="why-grid">
+
+<div class="why-item">
+
+<div class="why-number">01</div>
+
+<h3 data-en="Data-Driven Decisions"
+    data-fr="Décisions basées sur les données">
+    Data-Driven Decisions
+</h3>
+
+</div>
+
+
+<div class="why-item">
+
+<div class="why-number">02</div>
+
+<h3 data-en="Practical Solutions"
+    data-fr="Solutions pratiques">
+    Practical Solutions
+</h3>
+
+</div>
+
+
+<div class="why-item">
+
+<div class="why-number">03</div>
+
+<h3 data-en="AI-Enabled Analysis"
+    data-fr="Analyse assistée par l'IA">
+    AI-Enabled Analysis
+</h3>
+
+</div>
+
+
+<div class="why-item">
+
+<div class="why-number">04</div>
+
+<h3 data-en="Customer-Centric Approach"
+    data-fr="Approche centrée sur le client">
+    Customer-Centric Approach
+</h3>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+ABOUT US
+========================= -->
+
+<section class="section-light" id="about">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2 data-en="About Us"
+    data-fr="À propos de nous">
+    About Us
+</h2>
+
+<div class="line"></div>
+
+</div>
+
+
+<div class="about-content">
+
+<p data-en="Emesk CS Consulting is a consulting firm dedicated to helping organizations improve operational performance, customer experience and business growth through analytics, process optimization and AI."
+   data-fr="Emesk CS Consulting est un cabinet de conseil dédié à l'amélioration de la performance opérationnelle, de l'expérience client et de la croissance des organisations grâce à l'analytique, à l'optimisation des processus et à l'IA.">
+
+Emesk CS Consulting is a consulting firm dedicated to helping organizations improve operational performance, customer experience and business growth through analytics, process optimization and AI.
+
+</p>
+
+<p data-en="We believe that sustainable growth comes from understanding how people, processes and performance interact."
+   data-fr="Nous croyons qu'une croissance durable repose sur la compréhension de l'interaction entre les personnes, les processus et la performance.">
+
+We believe that sustainable growth comes from understanding how people, processes and performance interact.
+
+</p>
+
+<p data-en="Our mission is to transform operational systems from data into strategic decisions and measurable results."
+   data-fr="Notre mission est de transformer les systèmes opérationnels, des données vers des décisions stratégiques et des résultats mesurables.">
+
+Our mission is to transform operational systems from data into strategic decisions and measurable results.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+SERVICES
+========================= -->
+
+<section id="services">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2 data-en="Our Services"
+    data-fr="Nos services">
+    Our Services
+</h2>
+
+<div class="line"></div>
+
+</div>
+
+
+<div class="service-section">
+<h3 data-en="Operational Excellence" data-fr="Excellence opérationnelle">Operational Excellence</h3>
+<div class="service-list">
+<div data-en="Process Mapping" data-fr="Cartographie des processus">Process Mapping</div>
+<div data-en="KPI Analysis / Data Analysis" data-fr="Analyse des KPI / Analyse de données">KPI Analysis / Data Analysis</div>
+<div data-en="Process Optimization" data-fr="Optimisation des processus">Process Optimization</div>
+</div>
+</div>
+
+<div class="service-section">
+<h3 data-en="Project Management" data-fr="Gestion de projet">Project Management</h3>
+<div class="service-list">
+<div data-en="Training" data-fr="Formation">Training</div>
+<div data-en="Project Management" data-fr="Gestion de projet">Project Management</div>
+<div data-en="Project Impact Analysis" data-fr="Analyse de l'impact des projets">Project Impact Analysis</div>
+</div>
+</div>
+
+<div class="service-section">
+<h3 data-en="Customer Success" data-fr="Customer Success">Customer Success</h3>
+<div class="service-list">
+<div data-en="Customer Support Team Management" data-fr="Gestion des équipes de support client">Customer Support Team Management</div>
+<div data-en="Performance Management / Customer Support Dashboard" data-fr="Gestion de la performance / Tableau de bord Support Client">Performance Management / Customer Support Dashboard</div>
+<div data-en="Customer Retention" data-fr="Fidélisation client">Customer Retention</div>
+</div>
+</div>
+
+<div class="service-section">
+<h3 data-en="Data Analysis" data-fr="Analyse de données">Data Analysis</h3>
+<div class="service-list">
+<div data-en="Sales Performance Analysis" data-fr="Analyse de la performance commerciale">Sales Performance Analysis</div>
+<div data-en="Data Modeling" data-fr="Modélisation des données">Data Modeling</div>
+<div data-en="Data Visualization & BI Dashboard" data-fr="Visualisation des données & tableaux de bord BI">Data Visualization & BI Dashboard</div>
+<div data-en="Prediction" data-fr="Prédiction">Prediction</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- =========================
+PORTFOLIO
+========================= -->
+
+<section class="section-light" id="portfolio">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2 data-en="Our Portfolio"
+    data-fr="Notre Portfolio">
+    Our Portfolio
+</h2>
+
+<div class="line"></div>
+
+<p data-en="Selected projects demonstrating how data, analytics, AI and process optimization can support better business decisions."
+   data-fr="Quelques projets illustrant comment la data, l'analytique, l'IA et l'optimisation des processus peuvent soutenir de meilleures décisions business.">
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="portfolio-card">
+<div class="portfolio-image">
+<h3 data-en="E-commerce Analytics Dashboard" data-fr="Tableau de bord Analytics E-commerce">E-commerce Analytics Dashboard</h3>
+</div>
+<div class="portfolio-body">
+<h3 data-en="Project 01" data-fr="Projet 01">Project 01</h3>
+<p data-en="A business intelligence project designed to understand revenue, customer and product performance." data-fr="Un projet de Business Intelligence destiné à comprendre la performance du chiffre d'affaires, des clients et des produits.">A business intelligence project designed to understand revenue, customer and product performance.</p>
+<ul>
+<li data-en="Revenue analysis" data-fr="Analyse du chiffre d'affaires">Revenue analysis</li>
+<li data-en="Customer segmentation" data-fr="Segmentation des clients">Customer segmentation</li>
+<li data-en="Product analysis" data-fr="Analyse des produits">Product analysis</li>
+</ul>
+
+</div>
+<a href="YOUR_GOOGLE_DRIVE_LINK" target="_blank" class="btn btn-primary"
+data-en="View Project" data-fr="Voir le projet">View Project</a>
+</div>
+
+<div class="portfolio-card">
+<div class="portfolio-image">
+<h3 data-en="Customer Support Dashboard" data-fr="Tableau de bord Support Client">Customer Support Dashboard</h3>
+</div>
+<div class="portfolio-body">
+<h3 data-en="Project 02" data-fr="Projet 02">Project 02</h3>
+<p data-en="A customer support performance dashboard focused on service efficiency and customer experience." data-fr="Un tableau de bord de performance du support client axé sur l'efficacité du service et l'expérience client.">A customer support performance dashboard focused on service efficiency and customer experience.</p>
+<ul>
+<li data-en="SLA" data-fr="SLA">SLA</li>
+<li data-en="AHT" data-fr="AHT">AHT</li>
+<li data-en="CSAT" data-fr="CSAT">CSAT</li>
+<li data-en="Ticket analysis" data-fr="Analyse des tickets">Ticket analysis</li>
+</ul>
+
+</div>
+<a href="YOUR_GOOGLE_DRIVE_LINK" target="_blank" class="btn btn-primary"
+data-en="View Project" data-fr="Voir le projet">View Project</a>
+</div>
+
+<div class="portfolio-card">
+<div class="portfolio-image">
+<h3 data-en="Sales Performance Analysis — Turning Raw Data into a Growth Roadmap" data-fr="Analyse de la performance commerciale — Transformer les données en feuille de route de croissance">Sales Performance Analysis — Turning Raw Data into a Growth Roadmap</h3>
+</div>
+<div class="portfolio-body">
+<h3 data-en="Project 03" data-fr="Projet 03">Project 03</h3>
+<p data-en="An analysis framework that turns sales data into actionable insights and a practical growth roadmap." data-fr="Un cadre d'analyse qui transforme les données commerciales en insights exploitables et en feuille de route de croissance.">An analysis framework that turns sales data into actionable insights and a practical growth roadmap.</p>
+<ul>
+<li data-en="Revenue & growth trends" data-fr="Tendances du chiffre d'affaires et de la croissance">Revenue & growth trends</li>
+<li data-en="Sales performance" data-fr="Performance commerciale">Sales performance</li>
+<li data-en="Opportunity identification" data-fr="Identification des opportunités">Opportunity identification</li>
+</ul>
+</div>
+<a href="YOUR_GOOGLE_DRIVE_LINK" target="_blank" class="btn btn-primary"
+data-en="View Project" data-fr="Voir le projet">View Project</a>
+</div>
+
+<div class="portfolio-card">
+<div class="portfolio-image">
+<h3 data-en="Process Mapping & Six Sigma Audit" data-fr="Cartographie des processus & Audit Six Sigma">Process Mapping & Six Sigma Audit</h3>
+</div>
+<div class="portfolio-body">
+<h3 data-en="Project 04" data-fr="Projet 04">Project 04</h3>
+<p data-en="A process improvement project focused on identifying waste, bottlenecks, variation and improvement opportunities." data-fr="Un projet d'amélioration des processus visant à identifier les gaspillages, les goulots d'étranglement, les variations et les opportunités d'amélioration.">A process improvement project focused on identifying waste, bottlenecks, variation and improvement opportunities.</p>
+<ul>
+<li data-en="Process mapping" data-fr="Cartographie des processus">Process mapping</li>
+<li data-en="Root cause analysis" data-fr="Analyse des causes racines">Root cause analysis</li>
+<li data-en="Improvement opportunities" data-fr="Opportunités d'amélioration">Improvement opportunities</li>
+</ul>
+</div>
+<a href="YOUR_GOOGLE_DRIVE_LINK" target="_blank" class="btn btn-primary"
+data-en="View Project" data-fr="Voir le projet">View Project</a>
+</div>
+
+<div class="portfolio-card">
+<div class="portfolio-image">
+<h3 data-en="Executive KPI Dashboard — Real-Time Visibility for Leadership" data-fr="Tableau de bord KPI Exécutif — Visibilité en temps réel pour le leadership">Executive KPI Dashboard — Real-Time Visibility for Leadership</h3>
+</div>
+<div class="portfolio-body">
+<h3 data-en="Project 05" data-fr="Projet 05">Project 05</h3>
+<p data-en="An executive dashboard designed to give leaders a clear view of performance and key business indicators." data-fr="Un tableau de bord exécutif conçu pour donner aux dirigeants une vision claire de la performance et des indicateurs clés.">An executive dashboard designed to give leaders a clear view of performance and key business indicators.</p>
+<ul>
+<li data-en="Executive KPIs" data-fr="KPI exécutifs">Executive KPIs</li>
+<li data-en="Performance trends" data-fr="Tendances de performance">Performance trends</li>
+<li data-en="Decision support" data-fr="Aide à la décision">Decision support</li>
+</ul>
+
+</div>
+<a href="YOUR_GOOGLE_DRIVE_LINK" target="_blank" class="btn btn-primary"
+data-en="View Project" data-fr="Voir le projet">View Project</a>
+</div>
+
+<div class="portfolio-card">
+<div class="portfolio-image">
+<h3 data-en="Support Team Optimization — Improving CSAT While Cutting Response Time" data-fr="Optimisation de l'équipe Support — Améliorer le CSAT tout en réduisant le temps de réponse">Support Team Optimization — Improving CSAT While Cutting Response Time</h3>
+</div>
+<div class="portfolio-body">
+<h3 data-en="Project 06" data-fr="Projet 06">Project 06</h3>
+<p data-en="A support operations project focused on improving customer satisfaction while reducing response time." data-fr="Un projet d'optimisation du support visant à améliorer la satisfaction client tout en réduisant le temps de réponse.">A support operations project focused on improving customer satisfaction while reducing response time.</p>
+<ul>
+<li data-en="CSAT analysis" data-fr="Analyse CSAT">CSAT analysis</li>
+<li data-en="Response time" data-fr="Temps de réponse">Response time</li>
+<li data-en="Team performance" data-fr="Performance de l'équipe">Team performance</li>
+</ul>
+</div>
+<a href="YOUR_GOOGLE_DRIVE_LINK" target="_blank" class="btn btn-primary"
+data-en="View Project" data-fr="Voir le projet">View Project</a>
+</div>
+
+<div class="portfolio-card">
+<div class="portfolio-image">
+<h3 data-en="The Donor Lapse Predictor" data-fr="Prédiction de l'attrition des donateurs">The Donor Lapse Predictor</h3>
+</div>
+<div class="portfolio-body">
+<h3 data-en="Project 07" data-fr="Projet 07">Project 07</h3>
+<p data-en="A predictive analytics project designed to identify donor lapse risk and support proactive retention actions." data-fr="Un projet d'analyse prédictive visant à identifier le risque d'attrition des donateurs et à soutenir des actions de fidélisation proactives.">A predictive analytics project designed to identify donor lapse risk and support proactive retention actions.</p>
+<ul>
+<li data-en="Donor behavior" data-fr="Comportement des donateurs">Donor behavior</li>
+<li data-en="Risk prediction" data-fr="Prédiction du risque">Risk prediction</li>
+<li data-en="Retention actions" data-fr="Actions de fidélisation">Retention actions</li>
+</ul>
+
+</div>
+<a href="YOUR_GOOGLE_DRIVE_LINK" target="_blank" class="btn btn-primary"
+data-en="View Project" data-fr="Voir le projet">View Project</a>
+</div>
+
+<div class="portfolio-card">
+<div class="portfolio-image">
+<h3 data-en="Process Map & Redesign for a 2-Person Support Team Scaling to 10" data-fr="Cartographie & Refonte d'un processus pour une équipe Support passant de 2 à 10 personnes">Process Map & Redesign for a 2-Person Support Team Scaling to 10</h3>
+</div>
+<div class="portfolio-body">
+<h3 data-en="Project 08" data-fr="Projet 08">Project 08</h3>
+<p data-en="A process redesign project for scaling a small support operation while maintaining consistency and service quality." data-fr="Un projet de refonte des processus pour faire évoluer une petite équipe Support tout en maintenant la cohérence et la qualité de service.">A process redesign project for scaling a small support operation while maintaining consistency and service quality.</p>
+<ul>
+<li data-en="Process redesign" data-fr="Refonte des processus">Process redesign</li>
+<li data-en="Work allocation" data-fr="Répartition du travail">Work allocation</li>
+<li data-en="Scalability" data-fr="Évolutivité">Scalability</li>
+</ul>
+
+</div>
+<a href="YOUR_GOOGLE_DRIVE_LINK" target="_blank" class="btn btn-primary"
+data-en="View Project" data-fr="Voir le projet">View Project</a>
+</div>
+
+<div class="portfolio-card">
+<div class="portfolio-image">
+<h3 data-en="Grant Compliance & Impact Reporting Automation" data-fr="Automatisation du suivi de conformité et du reporting d'impact des subventions">Grant Compliance & Impact Reporting Automation</h3>
+</div>
+<div class="portfolio-body">
+<h3 data-en="Project 09" data-fr="Projet 09">Project 09</h3>
+<p data-en="A reporting concept designed to improve grant compliance visibility and automate impact reporting workflows." data-fr="Un concept de reporting conçu pour améliorer la visibilité de la conformité des subventions et automatiser les flux de reporting d'impact.">A reporting concept designed to improve grant compliance visibility and automate impact reporting workflows.</p>
+<ul>
+<li data-en="Compliance tracking" data-fr="Suivi de conformité">Compliance tracking</li>
+<li data-en="Impact reporting" data-fr="Reporting d'impact">Impact reporting</li>
+<li data-en="Automation" data-fr="Automatisation">Automation</li>
+</ul>
+</div>
+<a href="YOUR_GOOGLE_DRIVE_LINK" target="_blank" class="btn btn-primary"
+data-en="View Project" data-fr="Voir le projet">View Project</a>
+</div>
+
+<div class="portfolio-card">
+<div class="portfolio-image">
+<h3 data-en="CS Health Score Model for a SaaS/Service Business" data-fr="Modèle de Customer Success Health Score pour une entreprise SaaS/Services">CS Health Score Model for a SaaS/Service Business</h3>
+</div>
+<div class="portfolio-body">
+<h3 data-en="Project 10" data-fr="Projet 10">Project 10</h3>
+<p data-en="A customer health scoring model designed to identify customer risk, engagement patterns and retention opportunities." data-fr="Un modèle de score de santé client conçu pour identifier les risques, les niveaux d'engagement et les opportunités de fidélisation.">A customer health scoring model designed to identify customer risk, engagement patterns and retention opportunities.</p>
+<ul>
+<li data-en="Health score" data-fr="Score de santé">Health score</li>
+<li data-en="Customer risk" data-fr="Risque client">Customer risk</li>
+<li data-en="Retention" data-fr="Fidélisation">Retention</li>
+</ul>
+
+</div>
+<a href="YOUR_GOOGLE_DRIVE_LINK" target="_blank" class="btn btn-primary"
+data-en="View Project" data-fr="Voir le projet">View Project</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- =========================
+CONTENT
+========================= -->
+
+<section id="content">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2 data-en="Insights & Content"
+    data-fr="Insights & Contenu">
+    Insights & Content
+</h2>
+
+<div class="line"></div>
+
+<p data-en="Ideas, frameworks and practical insights about business performance, leadership, operations and customer experience."
+   data-fr="Idées, frameworks et réflexions pratiques sur la performance, le leadership, les opérations et l'expérience client.">
+</p>
+
+</div>
+
+
+<div class="content-box">
+
+<div class="article">
+
+<h3 data-en="From Data to Business Decisions"
+    data-fr="Des données aux décisions business">
+    From Data to Business Decisions
+</h3>
+
+<p data-en="Data alone does not create value. Organizations create value when data is transformed into insights, insights into decisions and decisions into measurable actions."
+   data-fr="Les données seules ne créent pas de valeur. Les organisations créent de la valeur lorsque les données deviennent des insights, les insights des décisions et les décisions des actions mesurables.">
+</p>
+
+</div>
+
+
+<div class="article">
+
+<h3 data-en="Operational Excellence"
+    data-fr="Excellence opérationnelle">
+    Operational Excellence
+</h3>
+
+<p data-en="Operational excellence is not only about reducing costs. It is about building processes that consistently deliver quality, speed, efficiency and customer value."
+   data-fr="L'excellence opérationnelle ne consiste pas uniquement à réduire les coûts. Elle consiste à construire des processus capables de produire constamment qualité, rapidité, efficacité et valeur client.">
+</p>
+
+</div>
+
+
+<div class="article">
+
+<h3 data-en="Customer Experience & Performance"
+    data-fr="Expérience client et performance">
+    Customer Experience & Performance
+</h3>
+
+<p data-en="Customer experience is strongly connected to operational performance. SLA, quality, resolution time and employee performance can directly influence customer satisfaction."
+   data-fr="L'expérience client est fortement liée à la performance opérationnelle. Les SLA, la qualité, le temps de résolution et la performance des équipes peuvent influencer directement la satisfaction client.">
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+FREE DEMO
+========================= -->
+
+<section class="demo" id="demo">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2 data-en="Request a Free Demo"
+    data-fr="Demandez une démo gratuite">
+    Request a Free Demo
+</h2>
+
+<div class="line"></div>
+
+</div>
+
+
+<p data-en="Would you like to see how data analytics, AI and process optimization can reveal opportunities to improve your operational performance?"
+   data-fr="Vous souhaitez découvrir comment la data, l'analytique, l'IA et l'optimisation des processus peuvent révéler des opportunités d'amélioration de votre performance opérationnelle ?">
+
+Would you like to see how data analytics, AI and process optimization can reveal opportunities to improve your operational performance?
+
+</p>
+
+
+<!-- REPLACE WITH YOUR GOOGLE FORM LINK -->
+
+<a href="https://docs.google.com/forms/d/1rfKXuPbwx0sAMtoL9xg_7_noP_nswYWJicq3VoJ0PLQ/edit"
+   target="_blank"
+   class="btn btn-primary"
+   data-en="Request My Free Demo"
+   data-fr="Demander ma démo gratuite">
+
+Request My Free Demo
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+CONTACT
+========================= -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2 data-en="Contact Us"
+    data-fr="Contactez-nous">
+    Contact Us
+</h2>
+
+<div class="line"></div>
+
+<p data-en="Let's discuss how we can help improve your business performance."
+   data-fr="Échangeons sur la manière dont nous pouvons améliorer la performance de votre entreprise.">
+</p>
+
+</div>
+
+
+<div class="contact-grid">
+
+
+<div class="contact-card">
+
+<h3>📧 Email</h3>
+
+<a href="mailto:info.emeskcs@gmail.com">
+info.emeskcs@gmail.com
+</a>
+
+</div>
+
+
+<div class="contact-card">
+
+<h3>💬 WhatsApp</h3>
+
+<a href="https://wa.me/22891114060"
+   target="_blank">
+
+<span data-en="Contact us on WhatsApp"
+      data-fr="Contactez-nous sur WhatsApp">
+
+Contact us on WhatsApp
+
+</span>
+
+</a>
+
+</div>
+
+
+<div class="contact-card">
+
+<h3>💼 LinkedIn</h3>
+
+<a href="https://www.linkedin.com/in/espoir-kouevi-950864240"
+   target="_blank">
+
+<span data-en="Visit our LinkedIn"
+      data-fr="Visitez notre LinkedIn">
+
+Visit our LinkedIn
+
+</span>
+
+</a>
+
+</div>
+
+
+<div class="contact-card">
+
+<h3>🚀 Free Demo</h3>
+
+<a href="https://docs.google.com/forms/d/1rfKXuPbwx0sAMtoL9xg_7_noP_nswYWJicq3VoJ0PLQ/edit">
+
+<span data-en="Request a Free Demo"
+      data-fr="Demander une démo gratuite">
+
+Request a Free Demo
+
+</span>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+FOOTER
+========================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="logo">
+Emesk <span>CS</span>
+</div>
+
+<div class="footer-line"></div>
+
+<p data-en="Operational Excellence Powered by Data Analytics, AI & Process Optimization"
+   data-fr="L'excellence opérationnelle propulsée par la Data, l'Analytique, l'IA et l'optimisation des processus">
+
+Operational Excellence Powered by Data Analytics, AI & Process Optimization
+
+</p>
+
+<br>
+
+<p>
+© 2026 Emesk CS Consulting. All Rights Reserved.
+</p>
+
+</div>
+
+</footer>
+
+
+<!-- =========================
+JAVASCRIPT
+========================= -->
+
+<script>
+
+let currentLanguage = "en";
+
+function setLanguage(language) {
+
+    currentLanguage = language;
+
+    document.documentElement.lang = language;
+
+    /* Change all elements containing translations */
+
+    const elements = document.querySelectorAll("[data-en]");
+
+    elements.forEach(function(element) {
+
+        const translation = language === "fr"
+            ? element.getAttribute("data-fr")
+            : element.getAttribute("data-en");
+
+        /* Only replace text in elements without child elements,
+           so nested formatting such as the hero highlight is preserved. */
+        if (element.children.length === 0) {
+            element.textContent = translation;
+        }
+
+    });
+
+
+    /* Change language buttons */
+
+    document.getElementById("enBtn").classList.remove("active");
+
+    document.getElementById("frBtn").classList.remove("active");
+
+    if(language === "en") {
+
+        document.getElementById("enBtn").classList.add("active");
+
+    } else {
+
+        document.getElementById("frBtn").classList.add("active");
+
+    }
+
+}
+
+
+function toggleMenu() {
+
+    document.getElementById("navigation").classList.toggle("show");
+
+}
+
+
+/* Start in English */
+
+setLanguage("en");
+
+</script>
+
+</body>
+</html>
